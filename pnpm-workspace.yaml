@@ -1,3 +1,2 @@
 allowBuilds:
-  '@tailwindcss/oxide': true
-  sharp: false
+  sharp: set this to true or false

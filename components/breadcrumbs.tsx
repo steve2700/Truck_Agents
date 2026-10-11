@@ -1,59 +1,23 @@
 import Link from "next/link"
-import { ChevronRight, Home } from "lucide-react"
-import { cn } from "@/lib/utils"
+import { JsonLd } from "@/components/json-ld"
+import { SITE } from "@/lib/site"
 
-interface BreadcrumbItem {
-  label: string
-  href?: string
-}
-interface BreadcrumbsProps {
-  items: BreadcrumbItem[]
-  variant?: "default" | "onDark"
-}
-export function Breadcrumbs({ items, variant = "default" }: BreadcrumbsProps) {
-  const onDark = variant === "onDark"
-
-  const linkClass = cn(
-    "flex items-center transition-colors",
-    onDark ? "text-white/70 hover:text-accent" : "text-muted-foreground hover:text-secondary",
-  )
-  const chevronClass = cn("h-4 w-4", onDark ? "text-white/40" : "text-muted-foreground")
-  const currentClass = cn("font-medium", onDark ? "text-white" : "text-foreground")
-
+export function Breadcrumbs({ items, tone = "light" }: { items: { name: string; href: string }[]; tone?: "light" | "dark" }) {
+  const all = [{ name: "Home", href: "/" }, ...items]
+  const color = tone === "dark" ? "text-silver" : "text-graphite"
   return (
-    <nav aria-label="Breadcrumb" className="py-4">
-      <ol className="flex flex-wrap items-center gap-2 text-sm" itemScope itemType="https://schema.org/BreadcrumbList">
-        <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-          <Link href="/" className={linkClass} itemProp="item">
-            <Home className="h-4 w-4" />
-            <span className="sr-only" itemProp="name">
-              Home
-            </span>
-          </Link>
-          <meta itemProp="position" content="1" />
-        </li>
-        {items.map((item, index) => (
-          <li
-            key={index}
-            className="flex items-center gap-2"
-            itemProp="itemListElement"
-            itemScope
-            itemType="https://schema.org/ListItem"
-          >
-            <ChevronRight className={chevronClass} />
-            {item.href ? (
-              <Link href={item.href} className={linkClass} itemProp="item">
-                <span itemProp="name">{item.label}</span>
-              </Link>
-            ) : (
-              <span className={currentClass} itemProp="name">
-                {item.label}
-              </span>
-            )}
-            <meta itemProp="position" content={String(index + 2)} />
-          </li>
-        ))}
-      </ol>
-    </nav>
+    <>
+      <JsonLd data={{ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: all.map((it, i) => ({ "@type": "ListItem", position: i + 1, name: it.name, item: `${SITE.url}${it.href === "/" ? "" : it.href}` })) }} />
+      <nav aria-label="Breadcrumb" className={`text-sm ${color}`}>
+        <ol className="flex flex-wrap items-center gap-2">
+          {all.map((it, i) => (
+            <li key={it.href} className="flex items-center gap-2">
+              {i > 0 && <span aria-hidden="true" className="text-signal">/</span>}
+              {i === all.length - 1 ? <span aria-current="page" className="font-semibold">{it.name}</span> : <Link href={it.href} className="hover:text-signal">{it.name}</Link>}
+            </li>
+          ))}
+        </ol>
+      </nav>
+    </>
   )
 }

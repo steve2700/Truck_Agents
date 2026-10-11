@@ -1,233 +1,56 @@
 @import "tailwindcss";
-@import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
-
-:root {
-  /* Borehole Works Brand Colors - Sky Blue (dominant) + Charcoal + Silver, Green as minor accent */
-  --background: oklch(0.99 0.003 230);
-  --foreground: oklch(0.22 0.01 240);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.22 0.01 240);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.22 0.01 240);
-
-  /* Primary - Charcoal */
-  --primary: oklch(0.26 0.01 240);
-  --primary-foreground: oklch(0.99 0.003 230);
-
-  /* Secondary - Silver */
-  --secondary: oklch(0.88 0.006 240);
-  --secondary-foreground: oklch(0.22 0.01 240);
-
-  /* Accent - Sky Blue (dominant brand color) */
-  --accent: oklch(0.68 0.13 230);
-  --accent-foreground: oklch(0.15 0.02 240);
-
-  /* Success/Eco - Green (minor accent, use sparingly: badges, eco callouts) */
-  --success: oklch(0.62 0.14 150);
-  --success-foreground: oklch(0.98 0.003 230);
-
-  --muted: oklch(0.95 0.004 230);
-  --muted-foreground: oklch(0.48 0.01 240);
-
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.99 0 0);
-  --border: oklch(0.88 0.006 240);
-  --input: oklch(0.9 0.006 240);
-  --ring: oklch(0.68 0.13 230);
-
-  --chart-1: oklch(0.68 0.13 230);
-  --chart-2: oklch(0.62 0.14 150);
-  --chart-3: oklch(0.26 0.01 240);
-  --chart-4: oklch(0.75 0.01 240);
-  --chart-5: oklch(0.5 0.1 220);
-
-  --radius: 0.5rem;
-
-  --sidebar: oklch(0.26 0.01 240);
-  --sidebar-foreground: oklch(0.99 0.003 230);
-  --sidebar-primary: oklch(0.68 0.13 230);
-  --sidebar-primary-foreground: oklch(0.15 0.02 240);
-  --sidebar-accent: oklch(0.35 0.012 240);
-  --sidebar-accent-foreground: oklch(0.99 0.003 230);
-  --sidebar-border: oklch(0.35 0.01 240);
-  --sidebar-ring: oklch(0.68 0.13 230);
+@theme {
+  --color-ink: #0b0b0c;
+  --color-graphite: #25282c;
+  --color-steel: #eceef0;
+  --color-silver: #c3c9d0;
+  --color-chrome: #8b929b;
+  --color-signal: #d0141c;
+  --color-signal-dark: #a30f15;
+  --font-display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --font-sans: "Barlow", system-ui, sans-serif;
 }
 
-.dark {
-  --background: oklch(0.16 0.008 240);
-  --foreground: oklch(0.95 0.003 230);
-  --card: oklch(0.2 0.008 240);
-  --card-foreground: oklch(0.95 0.003 230);
-  --popover: oklch(0.2 0.008 240);
-  --popover-foreground: oklch(0.95 0.003 230);
-  --primary: oklch(0.68 0.13 230);
-  --primary-foreground: oklch(0.15 0.02 240);
-  --secondary: oklch(0.35 0.012 240);
-  --secondary-foreground: oklch(0.95 0.003 230);
-  --muted: oklch(0.26 0.008 240);
-  --muted-foreground: oklch(0.68 0.008 240);
-  --accent: oklch(0.68 0.13 230);
-  --accent-foreground: oklch(0.15 0.02 240);
-  --success: oklch(0.62 0.14 150);
-  --success-foreground: oklch(0.15 0.02 240);
-  --destructive: oklch(0.5 0.2 27);
-  --destructive-foreground: oklch(0.95 0 0);
-  --border: oklch(0.32 0.01 240);
-  --input: oklch(0.3 0.01 240);
-  --ring: oklch(0.68 0.13 230);
-  --sidebar: oklch(0.2 0.008 240);
-  --sidebar-foreground: oklch(0.95 0.003 230);
-  --sidebar-primary: oklch(0.68 0.13 230);
-  --sidebar-primary-foreground: oklch(0.15 0.02 240);
-  --sidebar-accent: oklch(0.28 0.008 240);
-  --sidebar-accent-foreground: oklch(0.95 0.003 230);
-  --sidebar-border: oklch(0.32 0.01 240);
-  --sidebar-ring: oklch(0.68 0.13 230);
-}
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-sans); background: var(--color-steel); color: var(--color-ink); -webkit-font-smoothing: antialiased; }
+h1, h2, h3, .font-display { font-family: var(--font-display); letter-spacing: 0.005em; }
 
-@theme inline {
-  --font-sans: "Inter", "Inter Fallback", system-ui, sans-serif;
-  --font-mono: "Geist Mono", "Geist Mono Fallback";
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-success: var(--success);
-  --color-success-foreground: var(--success-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
-}
+:focus-visible { outline: 3px solid var(--color-signal); outline-offset: 3px; }
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
+/* Slow camera drift on every photo */
+@keyframes drift-a { from { transform: scale(1.04) translate(0, 0); } to { transform: scale(1.16) translate(-2.5%, -1.5%); } }
+@keyframes drift-b { from { transform: scale(1.16) translate(2%, 1%); } to { transform: scale(1.04) translate(0, 0); } }
+@keyframes drift-c { from { transform: scale(1.06) translate(0, 2%); } to { transform: scale(1.16) translate(1.5%, -2%); } }
+.drift-a { animation: drift-a 16s ease-in-out infinite alternate; }
+.drift-b { animation: drift-b 18s ease-in-out infinite alternate; }
+.drift-c { animation: drift-c 20s ease-in-out infinite alternate; }
 
-@keyframes area-rise {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
+/* Hero convoy: photo columns rolling past in opposite directions */
+@keyframes roll-up { from { transform: translateY(0); } to { transform: translateY(-50%); } }
+@keyframes roll-down { from { transform: translateY(-50%); } to { transform: translateY(0); } }
+.roll-up { animation: roll-up 48s linear infinite; }
+.roll-down { animation: roll-down 56s linear infinite; }
 
-@keyframes area-kenburns {
-  from {
-    transform: scale(1.14);
-  }
-  to {
-    transform: scale(1);
-  }
-}
+/* Photo strip */
+@keyframes strip { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.strip { animation: strip 60s linear infinite; }
+.strip:hover, .roll-up:hover, .roll-down:hover { animation-play-state: paused; }
 
-@keyframes area-drift {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
+/* Hero load sequence */
+@keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+.rise { opacity: 0; animation: rise 0.7s cubic-bezier(.2,.7,.2,1) forwards; }
 
-@keyframes area-card-in {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
+/* Call button heartbeat */
+@keyframes ring { 0% { box-shadow: 0 0 0 0 rgba(208,20,28,.55); } 70% { box-shadow: 0 0 0 16px rgba(208,20,28,0); } 100% { box-shadow: 0 0 0 0 rgba(208,20,28,0); } }
+.ring { animation: ring 2.4s ease-out infinite; }
 
-.area-rise {
-  animation: area-rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
-}
-
-.area-kenburns {
-  animation: area-kenburns 16s ease-out both;
-}
-
-.area-drift {
-  animation: area-drift 8s ease-in-out infinite;
-}
-
-.area-card-in {
-  animation: area-card-in 0.35s ease-out both;
-}
-
-.job-card-lines {
-  background-image: repeating-linear-gradient(
-    to bottom,
-    transparent 0,
-    transparent 47px,
-    var(--border) 47px,
-    var(--border) 48px
-  );
-}
-
-@keyframes area-marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-.area-marquee {
-  animation: area-marquee 38s linear infinite;
-}
+/* Diagonal cut used between light and dark bands */
+.cut-bottom { clip-path: polygon(0 0, 100% 0, 100% calc(100% - 28px), 0 100%); }
+.cut-both { clip-path: polygon(0 28px, 100% 0, 100% calc(100% - 28px), 0 100%); }
 
 @media (prefers-reduced-motion: reduce) {
-  .area-rise,
-  .area-kenburns,
-  .area-drift,
-  .area-card-in {
-    animation: none;
-  }
-
-  .area-marquee {
-    animation-play-state: paused;
-  }
+  .drift-a, .drift-b, .drift-c, .roll-up, .roll-down, .strip, .ring { animation: none; }
+  .rise { animation: none; opacity: 1; }
+  html { scroll-behavior: auto; }
 }
