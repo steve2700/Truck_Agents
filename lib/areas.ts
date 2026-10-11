@@ -61,5 +61,7 @@ export const PROBLEMS = [
   "Diesel tank or fuel system",
   "Trailer axle or bearings",
   "Tipper or body repair",
+  "Accident damage or panel beating",
+  "Bed liner or rubberizing",
   "Something else",
 ] as const

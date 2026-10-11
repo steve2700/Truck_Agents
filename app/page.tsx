@@ -7,6 +7,9 @@ import { MovingImage } from "@/components/moving-image"
 import { JobCard } from "@/components/job-card"
 import { Faq } from "@/components/faq"
 import { CtaBand } from "@/components/cta-band"
+import { BrandStrip } from "@/components/brand-strip"
+import { BeforeAfter } from "@/components/before-after"
+import { BA_HINO, BA_UD, BA_BED } from "@/lib/services"
 import { SERVICES } from "@/lib/services"
 import { AREAS } from "@/lib/areas"
 
@@ -25,7 +28,7 @@ const why = [
 const faqs = [
   { q: "What areas do you cover?", a: "We operate across Gauteng and its outskirts, including Johannesburg, Pretoria, Centurion, Midrand, Germiston, Kempton Park, Boksburg, Benoni, Alberton, Roodepoort, Krugersdorp and Vereeniging." },
   { q: "How do I get a quote?", a: "Fill in the job card on this page and it opens in WhatsApp, ready to send. Add photos of the problem in the chat and we will come back with a quote." },
-  { q: "Do you work on all truck brands?", a: "We work on the major heavy duty and commercial brands on South African roads. Put your truck make and model on the job card and we will confirm." },
+  { q: "Which truck brands do you work on?", a: "We work on Isuzu, Hino, UD Trucks, Scania and Mazda, and on other major heavy duty and commercial brands. Put your truck make and model on the job card and we will confirm." },
   { q: "Do you service fleets?", a: "Yes. We set up service schedules for fleets so trucks are maintained before they break down." },
 ]
 
@@ -49,7 +52,7 @@ export default function Home() {
               <WhatsAppButton label="WhatsApp" />
             </div>
             <ul className="rise mt-10 flex flex-wrap gap-x-8 gap-y-2 font-display text-xl font-medium text-graphite" style={{ animationDelay: "480ms" }}>
-              <li className="flex items-center gap-2"><span className="h-2.5 w-2.5 rounded-full bg-signal" />All truck brands</li>
+              <li className="flex items-center gap-2"><span className="h-2.5 w-2.5 rounded-full bg-signal" />Isuzu, Hino, UD, Scania, Mazda</li>
               <li className="flex items-center gap-2"><span className="h-2.5 w-2.5 rounded-full bg-signal" />Gauteng and its outskirts</li>
               <li className="flex items-center gap-2"><span className="h-2.5 w-2.5 rounded-full bg-signal" />Job card in under a minute</li>
             </ul>
@@ -57,6 +60,8 @@ export default function Home() {
           <HeroConvoy />
         </div>
       </section>
+
+      <BrandStrip />
 
       {/* Services */}
       <section className="mx-auto max-w-7xl px-5 py-20">
@@ -78,6 +83,20 @@ export default function Home() {
               </div>
             </Link>
           ))}
+        </div>
+      </section>
+
+      {/* Before and after */}
+      <section className="bg-white py-20" aria-labelledby="results">
+        <div className="mx-auto max-w-7xl px-5">
+          <h2 id="results" className="max-w-3xl text-5xl font-bold leading-[0.95] md:text-6xl">See the difference. Drag to compare.</h2>
+          <p className="mt-4 max-w-2xl text-lg text-graphite">Real trucks from our workshop. Accident damage rebuilt, cabs restored and worn beds protected.</p>
+          <div className="mt-10 grid gap-8 lg:grid-cols-3">
+            <BeforeAfter item={BA_HINO} />
+            <BeforeAfter item={BA_UD} />
+            <BeforeAfter item={BA_BED} />
+          </div>
+          <div className="mt-10"><LinkButton href="/services/truck-accident-repairs-and-panel-beating" look="dark">See accident repairs</LinkButton></div>
         </div>
       </section>
 

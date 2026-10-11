@@ -2,6 +2,10 @@ import type { Metadata } from "next"
 import { PageHero } from "@/components/page-hero"
 import { MovingImage } from "@/components/moving-image"
 import { CtaBand } from "@/components/cta-band"
+import { BrandStrip } from "@/components/brand-strip"
+import { PhotoStrip } from "@/components/photo-strip"
+import { BeforeAfter } from "@/components/before-after"
+import { BA_HINO } from "@/lib/services"
 import { CallButton, LinkButton } from "@/components/buttons"
 
 export const metadata: Metadata = {
@@ -21,7 +25,7 @@ export default function AboutPage() {
   return (
     <>
       {/* TODO: replace the copy below with the owner's real story, years in business and team details. */}
-      <PageHero crumbs={[{ name: "About", href: "/about" }]} title="Truck repairs by people who know trucks" text="Truck Agents repairs, services and maintains heavy duty trucks across Gauteng and its outskirts.">
+      <PageHero crumbs={[{ name: "About", href: "/about" }]} title="Truck repairs by people who know trucks" image={{ src: "/heavy-truck-repairs-shop.jpg", alt: "Heavy truck on the lift in the Truck Agents workshop" }} text="Truck Agents repairs, services and maintains heavy duty trucks across Gauteng and its outskirts.">
         <CallButton />
         <LinkButton href="/contact#job-card" look="outlineLight">Get a Free Quote</LinkButton>
       </PageHero>
@@ -47,6 +51,15 @@ export default function AboutPage() {
           ))}
         </div>
       </section>
+      <BrandStrip title="Trucks we repair every week" />
+      <section className="mx-auto grid max-w-7xl items-center gap-12 px-5 py-20 lg:grid-cols-2">
+        <BeforeAfter item={BA_HINO} />
+        <div>
+          <h2 className="text-4xl font-bold md:text-5xl">Proof is in the finish</h2>
+          <p className="mt-5 max-w-xl text-lg leading-relaxed text-graphite">This Hino came in with serious front end damage. Our panel beaters and painters rebuilt it so it could go back to work. Drag the slider to see the result.</p>
+        </div>
+      </section>
+      <section className="pb-20"><PhotoStrip /></section>
       <CtaBand />
     </>
   )

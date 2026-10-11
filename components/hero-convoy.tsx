@@ -5,11 +5,13 @@ const colA: P[] = [
   { src: "/truck-agents-white-international-semi-truck.jpg", alt: "White International truck tractor ready for the road" },
   { src: "/truck-agents-volvo-heavy-duty-truck-engine.jpg", alt: "Volvo truck engine in the workshop" },
   { src: "/truck-agents-chrome-truck-wheel-tire.jpg", alt: "Chrome wheel on a heavy duty truck" },
+  { src: "/truck-agents-ud-truck-cab-repair-restored-after.jpg", alt: "UD truck cab restored after repair" },
 ]
 const colB: P[] = [
   { src: "/truck-agents-aluminum-diesel-fuel-tank.jpg", alt: "Aluminium diesel tank for a truck" },
   { src: "/truck-agents-orange-tipper-truck-trailer.jpg", alt: "Orange tipper trailer" },
   { src: "/truck-agents-mechanics-servicing-trucks-yard.jpg", alt: "Mechanics servicing trucks" },
+  { src: "/truck-agents-truck-bed-rubberizing-after-coating.jpg", alt: "Truck bed with rubberized coating" },
 ]
 
 function Column({ items, cls, offset }: { items: P[]; cls: string; offset: number }) {

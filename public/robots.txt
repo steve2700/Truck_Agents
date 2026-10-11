@@ -1,17 +1,25 @@
-# robots.txt for Truck Agents
+# Truck Agents. Search engines and AI assistants are welcome.
 User-agent: *
 Allow: /
 
 Sitemap: https://www.truckagents.co.za/sitemap.xml
 
-User-agent: Googlebot-Image
-Allow: /
-
-User-agent: ClaudeBot
-User-agent: anthropic-ai
+# AI search and assistant crawlers
 User-agent: GPTBot
+User-agent: OAI-SearchBot
 User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: anthropic-ai
 User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot
+User-agent: Applebot-Extended
+User-agent: Bingbot
+User-agent: Amazonbot
+User-agent: DuckAssistBot
 User-agent: CCBot
 Allow: /
 

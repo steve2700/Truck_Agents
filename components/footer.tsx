@@ -3,6 +3,7 @@ import { Logo } from "@/components/logo"
 import { PhoneIcon, WhatsAppIcon } from "@/components/icons"
 import { SERVICES } from "@/lib/services"
 import { AREAS } from "@/lib/areas"
+import { BRANDS } from "@/lib/brands"
 import { SITE, WA_LINK } from "@/lib/site"
 
 export function Footer() {
@@ -34,6 +35,7 @@ export function Footer() {
             <a href={`mailto:${SITE.email}`} className={a}>{SITE.email}</a>
             <Link href="/contact#job-card" className={a}>Send a job card</Link>
             <Link href="/gallery" className={a}>Gallery</Link>
+            {BRANDS.map((b) => <Link key={b.slug} href={`/brands/${b.slug}`} className={a}>{b.name} repairs</Link>)}
             <Link href="/about" className={a}>About</Link>
             <Link href="/faq" className={a}>FAQ</Link>
           </div>

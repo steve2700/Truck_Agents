@@ -3,6 +3,7 @@ import { PageHero } from "@/components/page-hero"
 import { JobCard } from "@/components/job-card"
 import { PhoneIcon, WhatsAppIcon } from "@/components/icons"
 import { JsonLd } from "@/components/json-ld"
+import { PhotoStrip } from "@/components/photo-strip"
 import { SITE, WA_LINK } from "@/lib/site"
 
 export const metadata: Metadata = {
@@ -15,7 +16,7 @@ export default function ContactPage() {
   return (
     <>
       <JsonLd data={{ "@context": "https://schema.org", "@type": "ContactPage", url: `${SITE.url}/contact`, mainEntity: { "@id": `${SITE.url}/#business` } }} />
-      <PageHero crumbs={[{ name: "Contact", href: "/contact" }]} title="Call us, or send a job card" text="The fastest way to get a quote is the job card below. For a breakdown, call now." />
+      <PageHero crumbs={[{ name: "Contact", href: "/contact" }]} title="Call us, or send a job card" image={{ src: "/truck-agents-blue-semi-truck-repair-shop.jpg", alt: "Blue truck tractor in the repair shop" }} text="The fastest way to get a quote is the job card below. For a breakdown, call now." />
       <section className="mx-auto max-w-7xl px-5 py-16">
         <div className="grid gap-4 md:grid-cols-3">
           <a href={`tel:${SITE.phoneTel}`} className="flex items-center gap-4 rounded-[2rem] bg-signal p-6 text-white transition hover:bg-signal-dark">
@@ -38,7 +39,10 @@ export default function ContactPage() {
           <JobCard />
         </div>
       </section>
-      <p className="mx-auto max-w-7xl px-5 py-12 text-graphite">We operate across Gauteng and its outskirts.</p>
+      <section className="py-16">
+        <p className="mx-auto mb-8 max-w-7xl px-5 font-display text-3xl font-semibold">We operate across Gauteng and its outskirts</p>
+        <PhotoStrip />
+      </section>
     </>
   )
 }

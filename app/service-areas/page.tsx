@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function AreasPage() {
   return (
     <>
-      <PageHero crumbs={[{ name: "Areas", href: "/service-areas" }]} title="Truck repairs across Gauteng and its outskirts" text="Find your area to see how we help truck owners and fleets near you.">
+      <PageHero crumbs={[{ name: "Areas", href: "/service-areas" }]} title="Truck repairs across Gauteng and its outskirts" image={{ src: "/truck-agents-white-international-semi-truck.jpg", alt: "White truck tractor ready to hit the road in Gauteng" }} text="Find your area to see how we help truck owners and fleets near you.">
         <CallButton />
         <LinkButton href="/contact#job-card" look="outlineLight">Get a Free Quote</LinkButton>
       </PageHero>

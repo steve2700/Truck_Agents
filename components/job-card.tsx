@@ -10,9 +10,9 @@ const field = "h-12 w-full rounded-2xl border-2 border-chrome/40 bg-white px-4 t
 const chip = (on: boolean) =>
   `rounded-full border-2 px-4 py-2 font-display text-lg font-medium transition active:scale-95 ${on ? "border-signal bg-signal text-white" : "border-chrome/40 bg-white text-ink hover:border-ink"}`
 
-export function JobCard({ defaultProblem = "", defaultArea = "" }: { defaultProblem?: string; defaultArea?: string }) {
+export function JobCard({ defaultProblem = "", defaultArea = "", defaultTruck = "" }: { defaultProblem?: string; defaultArea?: string; defaultTruck?: string }) {
   const [problem, setProblem] = useState(defaultProblem)
-  const [truck, setTruck] = useState("")
+  const [truck, setTruck] = useState(defaultTruck)
   const [status, setStatus] = useState<"Broken down" | "Still driving">("Broken down")
   const [area, setArea] = useState(defaultArea)
   const [name, setName] = useState("")

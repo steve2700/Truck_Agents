@@ -1,6 +1,8 @@
 import { MovingImage } from "@/components/moving-image"
 
 const photos = [
+  ["/truck-agents-hino-truck-accident-repair-panel-beating-after.jpg", "Hino truck after accident repair"],
+  ["/truck-agents-truck-bed-rubberizing-prep-sanding.jpg", "Truck bed sanded before rubberizing"],
   ["/truck-agents-blue-semi-truck-repair-shop.jpg", "Blue truck tractor in the repair shop"],
   ["/truck-agents-heavy-duty-gearbox-internal-gears.jpg", "Heavy duty gearbox internal gears"],
   ["/truck-agents-truck-cab-spray-painting-prep.jpg", "Truck cab prepared for spray painting"],

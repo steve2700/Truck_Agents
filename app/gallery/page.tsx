@@ -2,6 +2,8 @@ import type { Metadata } from "next"
 import { PageHero } from "@/components/page-hero"
 import { MovingImage } from "@/components/moving-image"
 import { CtaBand } from "@/components/cta-band"
+import { BeforeAfter } from "@/components/before-after"
+import { BA_HINO, BA_UD, BA_BED } from "@/lib/services"
 import { CallButton, LinkButton } from "@/components/buttons"
 
 export const metadata: Metadata = {
@@ -11,6 +13,10 @@ export const metadata: Metadata = {
 }
 
 const photos: [string, string][] = [
+  ["/truck-agents-hino-truck-accident-repair-panel-beating-after.jpg", "Hino truck after accident repair"],
+  ["/truck-agents-ud-truck-cab-repair-restored-after.jpg", "UD truck cab restored after repair"],
+  ["/truck-agents-truck-bed-rubberizing-after-coating.jpg", "Truck bed with rubberized coating"],
+  ["/truck-agents-truck-bed-rubberizing-prep-sanding.jpg", "Truck bed sanded before rubberizing"],
   ["/truck-agents-white-international-semi-truck.jpg", "White International truck tractor"],
   ["/truck-agents-volvo-heavy-duty-truck-engine.jpg", "Volvo heavy duty truck engine"],
   ["/truck-agents-aluminum-diesel-fuel-tank.jpg", "Aluminium diesel fuel tank"],
@@ -37,10 +43,20 @@ const photos: [string, string][] = [
 export default function GalleryPage() {
   return (
     <>
-      <PageHero crumbs={[{ name: "Gallery", href: "/gallery" }]} title="Work from our workshop" text="Real trucks, real repairs. Every job here came in on a job card.">
+      <PageHero crumbs={[{ name: "Gallery", href: "/gallery" }]} title="Work from our workshop" image={{ src: "/truck-agents-hino-truck-accident-repair-panel-beating-after.jpg", alt: "Hino truck after accident repair" }} text="Real trucks, real repairs. Every job here came in on a job card.">
         <CallButton />
         <LinkButton href="/contact#job-card" look="outlineLight">Get a Free Quote</LinkButton>
       </PageHero>
+      <section className="bg-white py-20">
+        <div className="mx-auto max-w-7xl px-5">
+          <h2 className="text-5xl font-bold md:text-6xl">Before and after</h2>
+          <div className="mt-10 grid gap-8 lg:grid-cols-3">
+            <BeforeAfter item={BA_HINO} />
+            <BeforeAfter item={BA_UD} />
+            <BeforeAfter item={BA_BED} />
+          </div>
+        </div>
+      </section>
       <section className="mx-auto max-w-7xl px-5 py-20">
         <div className="columns-1 gap-5 sm:columns-2 lg:columns-3">
           {photos.map(([src, alt], i) => (

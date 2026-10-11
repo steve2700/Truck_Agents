@@ -2,6 +2,8 @@ import type { Metadata } from "next"
 import { PageHero } from "@/components/page-hero"
 import { Faq } from "@/components/faq"
 import { CtaBand } from "@/components/cta-band"
+import { MovingImage } from "@/components/moving-image"
+import { BrandStrip } from "@/components/brand-strip"
 import { CallButton, WhatsAppButton } from "@/components/buttons"
 
 export const metadata: Metadata = {
@@ -13,7 +15,9 @@ export const metadata: Metadata = {
 const items = [
   { q: "What areas do you cover?", a: "We operate across Gauteng and its outskirts, including Johannesburg, Pretoria, Centurion, Midrand, Germiston, Kempton Park, Boksburg, Benoni, Alberton, Roodepoort, Krugersdorp and Vereeniging." },
   { q: "How do I get a quote?", a: "Complete the job card on our website. It opens in WhatsApp, ready to send. Add photos of the problem and we will come back with a quote." },
-  { q: "Do you repair all truck brands?", a: "We work on the major heavy duty and commercial brands used in South Africa. Put your make and model on the job card and we will confirm." },
+  { q: "Which truck brands do you repair?", a: "We work on Isuzu, Hino, UD Trucks, Scania and Mazda, and on other major heavy duty and commercial brands used in South Africa. Put your make and model on the job card and we will confirm." },
+  { q: "Can you repair accident damaged trucks?", a: "Yes. We rebuild front ends, repair cabs and bumpers, do panel beating and respray. See the before and after photos on our accident repairs page." },
+  { q: "What is truck bed rubberizing?", a: "It is a tough sprayed rubber coating for truck and bakkie beds. We repair and sand the bed first, then coat it for a non slip, scratch resistant finish." },
   { q: "Can you repair trailers and tippers?", a: "Yes. We repair trailer axles, bearings, brakes, tipper bodies, flatbeds and hydraulics." },
   { q: "Do you do spray painting?", a: "Yes. We respray cabs and bodies, repair accident damage and match fleet colours." },
   { q: "Do you offer fleet maintenance?", a: "Yes. Tell us how many trucks you run and how far they travel and we will set up a service schedule." },
@@ -24,11 +28,18 @@ const items = [
 export default function FaqPage() {
   return (
     <>
-      <PageHero crumbs={[{ name: "FAQ", href: "/faq" }]} title="Truck repair questions, answered" text="Quick answers for owner drivers and fleet managers.">
+      <PageHero crumbs={[{ name: "FAQ", href: "/faq" }]} title="Truck repair questions, answered" image={{ src: "/truck-agents-mechanics-servicing-trucks-yard.jpg", alt: "Mechanics servicing trucks in the yard" }} text="Quick answers for owner drivers and fleet managers.">
         <CallButton />
         <WhatsAppButton />
       </PageHero>
-      <section className="mx-auto max-w-4xl px-5 py-20"><Faq items={items} /></section>
+      <section className="mx-auto grid max-w-7xl gap-10 px-5 py-20 lg:grid-cols-[1.4fr_1fr]">
+        <Faq items={items} />
+        <div className="grid gap-5 self-start sm:grid-cols-2 lg:sticky lg:top-32 lg:grid-cols-1">
+          <MovingImage src="/truck-agents-ud-truck-cab-repair-restored-after.jpg" alt="UD truck cab restored after repair" className="aspect-[4/3] rounded-[2rem]" />
+          <MovingImage src="/truck-agents-truck-bed-rubberizing-after-coating.jpg" alt="Truck bed with a fresh rubberized coating" className="aspect-[4/3] rounded-[2rem]" variant={1} />
+        </div>
+      </section>
+      <BrandStrip />
       <CtaBand />
     </>
   )

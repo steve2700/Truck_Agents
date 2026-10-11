@@ -1,31 +1,25 @@
-# Truck Agents Website
+# Truck Agents Website (v2)
 
-Next.js (App Router), TypeScript and Tailwind CSS v4. Static export.
-
-## Run it
+Next.js (App Router), TypeScript, Tailwind CSS v4. Static export.
 
 ```bash
-npm install
-npm run dev      # http://localhost:3000
-npm run build    # builds the static site into /out
+pnpm install
+pnpm dev        # http://localhost:3000
+pnpm build      # static site in /out
 ```
 
-## Change the placeholders (one file)
-
-Phone, WhatsApp number, email and domain all live in `lib/site.ts`. Change them there and every button, link, schema block and the job card updates.
-Also update the domain in `public/robots.txt` and `public/llms.txt` when the real details arrive.
+## Change placeholders in one file
+Phone, WhatsApp, email and domain: `lib/site.ts`. Also update the domain in `public/robots.txt`.
 
 ## Where things are
-
 | What | Where |
 | --- | --- |
-| Services (copy, SEO titles, FAQs) | `lib/services.ts` |
+| Services, SEO copy, before and after photos | `lib/services.ts` |
+| Truck brands and logos | `lib/brands.ts` |
 | Areas and job card problem list | `lib/areas.ts` |
-| Colours and animations | `app/globals.css` |
-| Logo component | `components/logo.tsx` |
+| AI crawler files (llms.txt, llms-full.txt) | `lib/llms.ts` (built automatically from the data above) |
+| Before and after slider | `components/before-after.tsx` |
 | WhatsApp job card | `components/job-card.tsx` |
-| Moving images with the TA stamp | `components/moving-image.tsx` |
-| Hero photo columns | `components/hero-convoy.tsx` |
-| Google Ads tracking | `lib/analytics.ts` |
+| Colours and animations | `app/globals.css` |
 
-Add a service or area by adding one entry to the matching file. The page, menu, footer, sitemap and schema are generated from it.
+Add a service, brand or area by adding one entry to its file. The page, menus, footer, sitemap, schema and llms files update automatically.

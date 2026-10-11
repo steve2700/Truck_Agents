@@ -17,6 +17,7 @@ import { GOOGLE_ADS_CONVERSION_ID } from "@/lib/analytics"
 import { SITE } from "@/lib/site"
 import { SERVICES } from "@/lib/services"
 import { AREAS } from "@/lib/areas"
+import { BRANDS } from "@/lib/brands"
 
 export const viewport: Viewport = { themeColor: "#0b0b0c" }
 
@@ -69,6 +70,8 @@ const businessSchema = {
   email: SITE.email,
   description: "Heavy duty truck repairs, servicing and maintenance across Gauteng and its outskirts.",
   priceRange: "$$",
+  knowsAbout: SERVICES.map((s) => s.name),
+  brand: BRANDS.map((b) => ({ "@type": "Brand", name: b.name, logo: `${SITE.url}${b.logo}` })),
   areaServed: [{ "@type": "AdministrativeArea", name: "Gauteng" }, ...AREAS.map((a) => ({ "@type": "City", name: a.name }))],
   makesOffer: SERVICES.map((s) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name: s.name, url: `${SITE.url}/services/${s.slug}` } })),
 }
@@ -85,6 +88,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           </>
         )}
         <JsonLd data={businessSchema} />
+        <JsonLd data={{ "@context": "https://schema.org", "@type": "WebSite", "@id": `${SITE.url}/#website`, url: SITE.url, name: SITE.name, inLanguage: "en-ZA", publisher: { "@id": `${SITE.url}/#business` } }} />
       </head>
       <body>
         <Header />
